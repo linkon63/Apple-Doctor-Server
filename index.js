@@ -10,12 +10,12 @@ const app = express()
 app.use(bodyParser.json()); // for parsing application/json
 app.use(cors());
 
-//Root Of Apple Doctor Server Site
+//Root Of Apple Doctor Server Site 
     app.get('/', (req, res) => {
     res.send('Root Of Server Site Apple Doctor')
     });
 
-//Connection of mongoDB 
+//Connection of mongoDB Database
     const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.q8ydv.mongodb.net/${process.env.DB_USER}?retryWrites=true&w=majority`;
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     client.connect(err => {
